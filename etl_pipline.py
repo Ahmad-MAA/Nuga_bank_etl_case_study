@@ -190,3 +190,4 @@ employee.write.jdbc(url=url, table="employee", mode="append", properties=propert
 transaction.write.jdbc(url=url, table="transaction", mode="append", properties=properties)
 fact_table.write.jdbc(url=url, table="fact_table", mode="append", properties=properties)
 
+print('database, table and data uploaded successfully')
