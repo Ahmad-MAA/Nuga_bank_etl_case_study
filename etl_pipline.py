@@ -20,7 +20,7 @@ from pyspark.sql.functions import monotonically_increasing_id
 import os
 import psycopg2
 
-
+print('setting java8')
 # Set Java home
 os.environ['JAVA_HOME'] = r'C:\java8'
 
@@ -35,8 +35,8 @@ df = spark.read.csv(r'dataset\rawdata\nuga_bank_transactions.csv', header=True, 
 
 
 #Data Cleaning and Transformation
-for column in df.columns:
-    print (column, 'Nulls:', df.filter(df[column].isNull()).count())
+#for column in df.columns:
+#    print (column, 'Nulls:', df.filter(df[column].isNull()).count())
 
 
 # fill up the missing values
@@ -66,8 +66,8 @@ df_clean = df.fillna({
 df_clean = df_clean.na.drop(subset = ['Last_Updated'])
 
 #Data Cleaning and Transformation
-for column in df_clean.columns:
-    print (column, 'Nulls:', df_clean.filter(df_clean[column].isNull()).count())
+#for column in df_clean.columns:
+#    print (column, 'Nulls:', df_clean.filter(df_clean[column].isNull()).count())
 
 
 #Data Transformation to 2NF
